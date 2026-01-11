@@ -99,8 +99,7 @@ body {
 .result {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  justify-content: space-between
+  gap: 5rem;
 }
 
 .currency {

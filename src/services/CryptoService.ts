@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CryptoCurrenciesResponseSchema } from "../schema/crypto-schema"
+import { CryptoCurrenciesResponseSchema, CryptoPriceSchema } from "../schema/crypto-schema"
 import type { Pair } from "../types"
 
 export async function getCryptos() {
@@ -16,5 +16,9 @@ export async function fetchCurrentCryptoProce(pair: Pair) {
   const url = `https://data-api.coindesk.com/index/cc/v1/latest/tick?market=cadli&instruments=${pair.criptocurrency}-${pair.currency}&apply_mapping=true&groups=CURRENT_DAY,VALUE`
 
   const {data : {Data}} = await axios(url)
-  console.log(Data[`${pair.criptocurrency}-${pair.currency}`])
+  const result = CryptoPriceSchema.safeParse(Data[`${pair.criptocurrency}-${pair.currency}`])
+
+  if(result.success) {
+    return result.data
+  }
 }

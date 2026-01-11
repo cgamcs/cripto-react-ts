@@ -11,6 +11,7 @@ const initialState = {
 
 function CriptoSearchForm() {
   const cryptoCurrencies = useCryptoStore((state) => state.cryptoCurrencies)
+  const fetchData = useCryptoStore((state) => state.fetchData)
   const [pair, setPair] = useState<Pair>(initialState)
   const [error, setError] = useState('')
 
@@ -30,7 +31,7 @@ function CriptoSearchForm() {
     }
     setError('')
 
-    
+    fetchData(pair)
   }
 
   return (

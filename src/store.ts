@@ -1,4 +1,3 @@
-import axios from "axios"
 import { create } from "zustand"
 import { devtools } from "zustand/middleware"
 import type { CryptoCurrency } from "./types"

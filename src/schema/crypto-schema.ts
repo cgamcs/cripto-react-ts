@@ -5,7 +5,7 @@ export const CurrencySchema = z.object({
   name: z.string()
 })
 
-export const CryptoCurrencyResponseSchema = z.array(
+export const CryptoCurrenciesResponseSchema = z.array(
   z.object({
     NAME: z.string(),
     SYMBOL: z.string()

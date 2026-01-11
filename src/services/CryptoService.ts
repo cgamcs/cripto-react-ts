@@ -13,5 +13,8 @@ export async function getCryptos() {
 }
 
 export async function fetchCurrentCryptoProce(pair: Pair) {
-  console.log(pair)
+  const url = `https://data-api.coindesk.com/index/cc/v1/latest/tick?market=cadli&instruments=${pair.criptocurrency}-${pair.currency}&apply_mapping=true&groups=CURRENT_DAY,VALUE`
+
+  const {data : {Data}} = await axios(url)
+  console.log(Data[`${pair.criptocurrency}-${pair.currency}`])
 }

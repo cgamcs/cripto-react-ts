@@ -18,8 +18,8 @@ export const PairSchema = z.object({
 })
 
 export const CryptoPriceSchema = z.object({
-  VALUE: z.number(),
-  CURRENT_DAY_HIGH: z.number(),
-  CURRENT_DAY_LOW: z.number(),
+  VALUE: z.number().transform(val => val.toFixed(2)),
+  CURRENT_DAY_HIGH: z.number().transform(val => val.toFixed(2)),
+  CURRENT_DAY_LOW: z.number().transform(val => val.toFixed(2)),
   VALUE_FLAG: z.string()
 })

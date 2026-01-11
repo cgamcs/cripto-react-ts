@@ -11,10 +11,16 @@ function CryptoPriceDisplay() {
         <>
           <h2>Cotización</h2>
 
+
           <div className="result">
             <div>
-              <p>El precio es de: <span>${result.VALUE}</span></p>
+              <p>Precio: <span className="currency">$ {result.VALUE}</span></p>
+              <p>Precio más alto: <span className="currency">$ {result.CURRENT_DAY_HIGH}</span></p>
+              <p>Precio más bajo: <span className="currency">$ {result.CURRENT_DAY_LOW}</span></p>
             </div>
+
+            
+            <span className={`flag-${result.VALUE_FLAG}`}></span>
           </div>
         </>
       )}
